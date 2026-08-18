@@ -1,5 +1,5 @@
 import User from "../model/user.js";
-import bcypt from "bcryptjs";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import {sendEmail} from "../utils/sendEmail.js";
 const generateToken=(id)=>{
@@ -11,7 +11,13 @@ const generateToken=(id)=>{
 // register a new User
 const registerUser=async(req,res)=>{
 
-const {name,email,password}=req.body;
+const {name,email,password}=req.body ?? {};
+
+if (!name || !email || !password) {
+    return res.status(400).json({
+        message: "Name, email, and password are required. Send a JSON request body.",
+    });
+}
 
 try{
 
@@ -34,7 +40,8 @@ const hashedPassword=await bcrypt.hash(password,salt);
     if(user){
         const otp=Math.floor(100000 +Math.random()*900000).toString();
         const message=`Your OTP for ShopNest  registration is ${otp}`;
-        await sendEmail(email,'ShopNest Registration OPT',message);
+        console.log(`email is ${email}`);
+        await sendEmail(email,'ShopNest Registration OTP',message);
             res.status(201).json({
              
                 _id:user._id,
@@ -57,7 +64,13 @@ const hashedPassword=await bcrypt.hash(password,salt);
 };
 
 const loginUser=async(req,res)=>{
-    const {email,password}=req.body;
+    const {email,password}=req.body ?? {};
+
+    if (!email || !password) {
+        return res.status(400).json({
+            message: "Email and password are required. Send a JSON request body.",
+        });
+    }
 
     try{
         const user=await User.findOne({email});
@@ -90,5 +103,4 @@ catch(error){
 }
 }
 export { registerUser, loginUser, getUsers };
-
 
