@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { connectDB } from "./config/db.js";
 import authRoutes from "./route/authRoutes.js";
+import productRoutes from "./route/productRoutes.js"
 dotenv.config();
 await connectDB(); // Wait for the database connection to be established
 const app = express();
@@ -16,9 +17,9 @@ app.get("/", (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/products',productRoutes);
-app.use('/api/payment',paymentRoutes);
-app.use('/api/orders',orderRoutes);
-app.use('/api/analytics',analyticsRoutes);
+//app.use('/api/payment',paymentRoutes);
+//app.use('/api/orders',orderRoutes);
+//app.use('/api/analytics',analyticsRoutes);
 
 
 const PORT = process.env.PORT || 8000;
