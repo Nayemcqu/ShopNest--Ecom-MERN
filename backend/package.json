@@ -12,7 +12,6 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
-    
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
@@ -24,7 +23,7 @@
     "mongoose": "^9.9.2",
     "multer": "^2.2.0",
     "nodemailer": "^9.0.5",
-    "razorpay": "^2.9.8"
+    "stripe": "^22.6.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
