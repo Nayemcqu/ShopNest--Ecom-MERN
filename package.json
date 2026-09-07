@@ -1,0 +1,31 @@
+{
+  "name": "shopnest-full-stack",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "Nayems",
+    "microservices"
+  ],
+  "homepage": "https://github.com/Nayemcqu/ShopNest--Ecom-MERN#readme",
+  "bugs": {
+    "url": "https://github.com/Nayemcqu/ShopNest--Ecom-MERN/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nayemcqu/ShopNest--Ecom-MERN.git"
+  },
+  "license": "ISC",
+  "author": "Nayem Khan",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev:server": "cd backend && npm run dev",
+    "dev:client": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build": "cd frontend && npm run build"
+    
+  },
+  "dependencies": {
+    "concurrently": "^10.0.5"
+  }
+}
