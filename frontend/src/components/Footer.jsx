@@ -11,7 +11,7 @@ return(
         </div>
         <ul className="footer-links">
             <li><Link to="/about">About</Link></li>
-            <li><Link to="/return">Returns & Exchanges</Link></li>
+            <li><Link to="/returnPolicy">Returns & Exchanges</Link></li>
             <li><Link to="/disclaimer">Disclaimer</Link></li>
         </ul>
  <p>&copy; {new Date().getFullYear()} ShopNest. All rights reserved.</p>

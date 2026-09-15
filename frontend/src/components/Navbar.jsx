@@ -2,15 +2,14 @@
 import { Link,useNavigate } from 'react-router-dom'
 import {authContext} from '../context/authContext.jsx'
 import {useContext} from 'react'
-//import {useSelector} from 'react-redux'
+import {useSelector} from 'react-redux'
 import logo from '../assets/shopnest.png'
 import '../styles/navbar.css'
 
 export default function Navbar() {
 const{user,logout}=useContext(authContext);
 
-const cartItems=[];
-//useSelector((state)=>state.cart.cartItems);
+const cartItems=useSelector((state)=>state.cart.cartItems);
 
 const navigate=useNavigate();
 
@@ -23,8 +22,9 @@ const handleLogout=()=>{
     return (
         <nav className="navbar">
             <div className='navbar-brand'>
-                 <Link to="/">ShopNest</Link>
                  <img src={logo} alt="ShopNest Logo" />
+                 <Link to="/">ShopNest</Link>
+                
             </div>
             <ul className="navbar-links">
                 <li><Link to="/">shop</Link></li>

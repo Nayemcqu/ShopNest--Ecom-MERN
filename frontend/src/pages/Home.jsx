@@ -1,16 +1,15 @@
 import {useEffect, useState} from 'react'
 import ProductCard from '../components/ProductCard.jsx'
-
 export default function Home() {
 
   const [products,setProducts]=useState([]);
   const [loading,setLoading]=useState(true);
 
 useEffect(()=>{
-fetchProducts=async()=>{
+const fetchProducts=async()=>{
 
   try{
-const res=await fetch('api/products')
+const res=await fetch('/api/products')
 const data=await res.json();
 setProducts(data.slice(0,4)); //Featured products
   }
@@ -22,6 +21,7 @@ setProducts(data.slice(0,4)); //Featured products
   }
 
 }
+fetchProducts();
 },[])
 
   return (
@@ -39,10 +39,10 @@ setProducts(data.slice(0,4)); //Featured products
     <p>Loading...</p>
   ):(
     <div className="product-grid">
-      {products.map((product)=>{
+      {products.map((product)=>(
 <ProductCard key={product._id} product={product}/>
 
-      })}
+      ))}
       </div>
   )
 }

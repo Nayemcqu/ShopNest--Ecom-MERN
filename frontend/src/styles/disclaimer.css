@@ -1,0 +1,77 @@
+.disclaimer-page {
+  min-height: 85vh;
+  padding: 60px 20px;
+}
+
+.disclaimer-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+}
+
+.disclaimer-container h1 {
+  color: greenyellow;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.disclaimer-intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #d4d4d8;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.disclaimer-section {
+  margin-bottom: 30px;
+}
+
+.disclaimer-section h2 {
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.disclaimer-section p {
+  color: #a1a1aa;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.disclaimer-updated {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #27272a;
+  color: #71717a;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .disclaimer-page {
+    padding: 30px 15px;
+  }
+
+  .disclaimer-container {
+    padding: 25px 20px;
+  }
+
+  .disclaimer-container h1 {
+    font-size: 2rem;
+  }
+
+  .disclaimer-intro {
+    font-size: 1rem;
+  }
+
+  .disclaimer-section h2 {
+    font-size: 1.2rem;
+  }
+}

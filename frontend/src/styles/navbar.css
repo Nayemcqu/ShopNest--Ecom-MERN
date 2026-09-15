@@ -23,6 +23,13 @@ box-shadow:0 2px 4px rgba(0,0,0,0.5);
     gap:10px;
 
 }
+.navbar-brand a:hover {
+    background: linear-gradient(to right, greenyellow, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+transition: background 0.3s ease;
+}
 
 .navbar-brand a{
     font-size:28px;
@@ -36,12 +43,17 @@ box-shadow:0 2px 4px rgba(0,0,0,0.5);
     gap:10px;
     text-shadow:0 2px 10px rgba(0,0,0,0.5);
 }
-
-.navbar-brand a::after{
-    content:'';
-    color:#f97316;
-    font-size:28px;
-
+.navbar-brand a::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 2px;
+    position: relative;
+    top: 6px;
+    margin-right: 2px;
 }
 
  .navbar-links{
@@ -64,14 +76,30 @@ box-shadow:0 2px 4px rgba(0,0,0,0.5);
 
 .navbar-links a{
     text-decoration:none;
+    position: relative;
     color:white;
     font-size:16px;
     transition:color 0.3s ease;
 }
 
 .navbar-links a:hover{
-    color:#007bff;
+    color:greenyellow;
 }
+
+.navbar-links a::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    background-color: greenyellow;
+    transition: width 0.3s ease;
+}
+.navbar-links a:hover::after{
+    width: 100%;
+}
+
 .btn-logout{
     background-color:transparent;
     border:none;
@@ -81,7 +109,7 @@ box-shadow:0 2px 4px rgba(0,0,0,0.5);
     transition:color 0.3s ease;
 }
 .btn-logout:hover{
-    color:#007bff;
+    color:greenyellow;
 }
 
 
