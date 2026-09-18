@@ -2,7 +2,7 @@ import { useEffect,useState } from "react";
 import { useParams,Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice.js";
-
+import   '../styles/productDetails.css'
 export default function ProductDetail(){
 
     const {id}=useParams();
@@ -71,15 +71,15 @@ return(
 <div className="product-detail">
 {/*Left side Image */}
 <div className="detail-image-container">
-<img src="product.imageUrl" alt={product.name} className="detail-image"/>
+<img src={product.imageUrls} alt={product.name} className="detail-image"/>
 </div>
 
-{/*Right side Image */}
+{/*Right side details*/}
 
 <div className="detail-info">
 <h2 style={{fontSize:'2.8rem', marginBottom:'10px'}}>{product.name}</h2>
 <p className="detail-price" style={{fontSize:'2.5rem', margin:'15px 0'}}>${product.price.toFixed(2)}</p>
-</div>
+
 
 {/*Description*/}
 <div style={{marginBottom:'25px'}}>
@@ -90,7 +90,7 @@ return(
 {/*Cart & Stock Actions*/}
 
 <div style={{display:'flex',alignItems:'center', gap:'20px'}}>
-<button onClick={handleAddToCart} className="btn" style={{flexGrow:'1',padding:'18px', fontSize:'1.2rem'}}>Add to shopping cart</button>
+<button onClick={handleAddToCart} className="btn add-cart-btn" style={{flex:'1',padding:'18px', fontSize:'1.2rem'}}>Add to shopping cart</button>
 </div>
 
 <p style={{marginTop:'20px', color:product.stock>0 ? '#10b981': '#ef4444',fontWeight:'600' }}>
@@ -98,7 +98,7 @@ return(
     {product.stock > 0 ? `In stock(${product.stock}) units Available` :`Temporarily out of stock`}
 </p>
 
-
+</div>
 </div>
 
 </div>

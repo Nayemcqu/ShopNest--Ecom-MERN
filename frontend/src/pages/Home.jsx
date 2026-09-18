@@ -38,7 +38,9 @@ fetchProducts();
   loading ? (
     <p>Loading...</p>
   ):(
-    <div className="product-grid">
+    <div className="product-grid" style={{  display: "grid", justifyContent:'center',
+  gridTemplateColumns: "repeat(auto-fit, minmax(250px,300px))",
+  gap: "20px", }} >
       {products.map((product)=>(
 <ProductCard key={product._id} product={product}/>
 

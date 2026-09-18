@@ -1,10 +1,10 @@
-import { useState,useContext } from "react";
+import { useState,useContext,useRef } from "react";
 import { useNavigate,Link } from "react-router-dom";
 import { authContext } from "../context/authContext";
-
+import '../styles/register.css'
 export default function Register(){
 
-    const [name,setName]=useState('');
+const [name,setName]=useState('');
 const [email,setEmail]=useState('');
 const [password,setPassword]=useState('');
 const {login}=useContext(authContext);

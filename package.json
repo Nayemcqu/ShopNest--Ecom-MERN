@@ -19,11 +19,17 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install ",
     "dev:server": "cd backend && npm run dev",
     "dev:client": "cd frontend && npm run dev",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
-    "build": "cd frontend && npm run build"
-    
+    "build": "cd frontend && npm run build",
+"start": "cd backend && npm start",
+"start:backend":"npm --prefix  backend run dev",
+"start:frontend":"npm --prefix  frontend run dev",
+"seed":"npm --prefix backend run seed"
+
+
   },
   "dependencies": {
     "concurrently": "^10.0.5"

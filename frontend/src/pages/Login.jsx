@@ -26,7 +26,7 @@ const res=await fetch('/api/auth/login',{
 const data=await res.json();
 
 if(res.ok){
-alert('Register successful! please check your email for the welcome OTP')
+alert('Login successful!')
 login(data);
 navigate('/')
 }

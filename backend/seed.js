@@ -48,7 +48,7 @@ const seed = async () => {
 				price: 19.99,
 				category: "Clothing",
 				stock: 150,
-				imageUrls: "https://via.placeholder.com/400x400.png?text=T-Shirt",
+				imageUrls: "https://res.cloudinary.com/mugab252/image/upload/v1786925498/samples/man-portrait.jpg",
 			},
 			{
 				name: "Running Sneakers",
@@ -56,7 +56,7 @@ const seed = async () => {
 				price: 79.99,
 				category: "Footwear",
 				stock: 60,
-				imageUrls: "https://via.placeholder.com/400x400.png?text=Sneakers",
+				imageUrls: "https://res.cloudinary.com/mugab252/image/upload/v1786925501/cld-sample-5.jpg",
 			},
 			{
 				name: "Wireless Headphones",
@@ -64,7 +64,7 @@ const seed = async () => {
 				price: 129.99,
 				category: "Electronics",
 				stock: 40,
-				imageUrls: "https://via.placeholder.com/400x400.png?text=Headphones",
+				imageUrls: "https://res.cloudinary.com/mugab252/image/upload/v1786925492/samples/ecommerce/accessories-bag.jpg",
 			},
 			{
 				name: "Coffee Mug",
@@ -72,7 +72,7 @@ const seed = async () => {
 				price: 9.99,
 				category: "Home",
 				stock: 300,
-				imageUrls: "https://via.placeholder.com/400x400.png?text=Mug",
+				imageUrls: "https://res.cloudinary.com/mugab252/image/upload/v1786925499/samples/coffee.jpg",
 			},
 			{
 				name: "Notebook",
@@ -80,8 +80,16 @@ const seed = async () => {
 				price: 14.5,
 				category: "Stationery",
 				stock: 120,
-				imageUrls: "https://via.placeholder.com/400x400.png?text=Notebook",
+				imageUrls: "https://res.cloudinary.com/mugab252/image/upload/v1786925499/samples/cup-on-a-table.jpg",
 			},
+			{
+				name: "sofa",
+				description: "common sofa for all ",
+				price: 135,
+				category: "household",
+				stock: 20,
+				imageUrls: "https://res.cloudinary.com/mugab252/image/upload/v1788152104/jgeanwhuad3vm0flmins.jpg",
+			}
 		];
 
 		const createdProducts = await Product.insertMany(products);

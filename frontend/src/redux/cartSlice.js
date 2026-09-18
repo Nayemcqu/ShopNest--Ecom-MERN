@@ -25,7 +25,24 @@ addToCart: (state, action) => {
     }
     localStorage.setItem('cartItems',JSON.stringify(state.cartItems));
 },
+removeByQuantity:(action,state)=>{
 
+    const product=action.payload;
+
+    const existingItem=state.cartItems.find((x)=>x._id===product._id);
+
+   if (existingItem) {
+    existingItem.quantity--;
+
+    if (existingItem.quantity <= 0) {
+      state.cartItems = state.cartItems.filter(
+        (x) => x._id !== product._id
+      );
+    }
+  }
+
+localStorage.setItem('cartItems',JSON.stringify(state.cartItems));
+},
 removeFromCart: (state, action) => {
 
     const itemId = action.payload;
@@ -48,5 +65,5 @@ clearCart:(state)=>{
 
 })
 
-export const {addToCart,removeFromCart,clearCart}=cartSlice.actions;
+export const {addToCart,removeFromCart,clearCart,removeByQuantity}=cartSlice.actions;
 export default cartSlice.reducer;

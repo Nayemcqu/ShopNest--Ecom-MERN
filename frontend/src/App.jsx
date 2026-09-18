@@ -9,8 +9,8 @@ import ReturnPolicy from './pages/ReturnPolicy.jsx'
 import Register from './pages/Register.jsx'
 import Login from './pages/Login.jsx'
 import ProductDetail from './pages/ProductDetail.jsx'
-
-
+import Cart from './pages/Cart.jsx'
+import Checkout from './pages/Checkout.jsx'
 
 function App() {
 
@@ -27,7 +27,8 @@ function App() {
 <Route path='/register' element={<Register/>}></Route>
 <Route path='/login' element={<Login/>}></Route>
 <Route path='/products/:id' element={<ProductDetail/>}></Route>
-
+<Route path='=/cart' element={<Cart/>}></Route>
+<Route path='/checkout' element={<Checkout/>}></Route>
       </Routes>
       <Footer/>
     </BrowserRouter>
