@@ -1,6 +1,6 @@
 import { useSelector,useDispatch } from "react-redux";
-import {Link,Navigate} from 'react-router-dom'
-import { removeFromCart,addToCart,removeByQuantity } from "../redux/cartSlice";
+import {Link,useNavigate} from 'react-router-dom'
+import { removeFromCart,addToCart,removeByQuantity } from "../redux/cartSlice.js";
 import '../styles/cart.css'
 
 export default function Cart(){
@@ -27,7 +27,7 @@ const handleRemoveFromCart=(id)=>{
     dispatch(removeFromCart(id));
 }
 
-const totalPrice=cartItems.reduce((acc,item)=>acc + item.price*item.quanity,0);
+const totalPrice=cartItems.reduce((acc,item)=>acc + item.price*item.quantity,0);
 
 return(
 
@@ -42,7 +42,7 @@ return(
     {
 cartItems.map((item)=>(
 
-<div key={item._id} className="cart-item">
+<div key={item.productId} className="cart-item">
 <img src={item.imageUrl} alt={item.name} className="cart-item-image"/>
 <div className="cart-item-detail">
 <h4> {item.name}</h4>
@@ -52,14 +52,14 @@ cartItems.map((item)=>(
 -
 </button>
 <span>
-    {item.quanity}
+    {item.quantity}
 </span>
 
 <button onClick={()=>handleAddToCart(item)}>
 +
 </button>
 </div>
-<button onClick={()=>handleRemoveFromCart()} className="btn-remove-from-cart">
+<button onClick={()=>handleRemoveFromCart(item.productId)} className="btn-remove-from-cart">
 Remove
 </button>
 </div>

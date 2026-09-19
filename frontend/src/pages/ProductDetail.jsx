@@ -39,8 +39,9 @@ dispatch(addToCart(
         productId:product._id,
         name:product.name,
         price:product.price,
-        imageUrl:product.imageUrl,
-        qty:1
+        imageurl:product.imageUrls,
+        quantity:1,
+        
     }))
 
     alert('successfully added to your cart');

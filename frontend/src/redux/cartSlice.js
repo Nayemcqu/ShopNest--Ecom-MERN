@@ -12,11 +12,11 @@ addToCart: (state, action) => {
     const item = action.payload;
 
     const existingItem = state.cartItems.find(
-        (x) => x._id === item._id
+        (x) => x.productId === item.productId
     );
 
     if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.quantity++;
     } else {
         state.cartItems.push({
             ...item,
@@ -25,18 +25,20 @@ addToCart: (state, action) => {
     }
     localStorage.setItem('cartItems',JSON.stringify(state.cartItems));
 },
-removeByQuantity:(action,state)=>{
+removeByQuantity:(state,action)=>{
 
+    console.log("ACTION PAYLOAD:", action.payload);
+console.log("CART:", state.cartItems);
     const product=action.payload;
 
-    const existingItem=state.cartItems.find((x)=>x._id===product._id);
+    const existingItem=state.cartItems.find((x)=>x.productId===product.productId);
 
    if (existingItem) {
     existingItem.quantity--;
 
     if (existingItem.quantity <= 0) {
       state.cartItems = state.cartItems.filter(
-        (x) => x._id !== product._id
+        (x) => x.productId !== product.productId
       );
     }
   }
@@ -48,7 +50,7 @@ removeFromCart: (state, action) => {
     const itemId = action.payload;
 
     state.cartItems = state.cartItems.filter(
-        (x) => x._id !== itemId
+        (x) => x.productId !== itemId
     );
 
     localStorage.setItem(
