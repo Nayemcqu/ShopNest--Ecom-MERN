@@ -11,6 +11,7 @@ import Login from './pages/Login.jsx'
 import ProductDetail from './pages/ProductDetail.jsx'
 import Cart from './pages/Cart.jsx'
 import Checkout from './pages/Checkout.jsx'
+import PaymentSuccess from './pages/PaymentSuccess.jsx' 
 
 function App() {
 
@@ -18,19 +19,27 @@ function App() {
 
   return (
     <BrowserRouter>
+    <div className='app'>
+
+    
     <Navbar/>
+    <main className='main-content'>
       <Routes>
     <Route path="/" element={<Home/>} />  
     <Route path='/about' element={<About/>}></Route>
     <Route path='/disclaimer' element={<Disclaimer/>}></Route>
     <Route path='/returnPolicy' element={<ReturnPolicy/>}></Route>
-<Route path='/register' element={<Register/>}></Route>
-<Route path='/login' element={<Login/>}></Route>
-<Route path='/products/:id' element={<ProductDetail/>}></Route>
-<Route path='/cart' element={<Cart/>}></Route>
-<Route path='/checkout' element={<Checkout/>}></Route>
+    <Route path='/register' element={<Register/>}></Route>
+    <Route path='/login' element={<Login/>}></Route>
+    <Route path='/products/:id' element={<ProductDetail/>}></Route>
+    <Route path='/cart' element={<Cart/>}></Route>
+    <Route path='/checkout' element={<Checkout/>}></Route>
+    <Route path='/payment-success' element={<PaymentSuccess/>}></Route>
       </Routes>
+       
+      </main>
       <Footer/>
+      </div>
     </BrowserRouter>
   )
 }

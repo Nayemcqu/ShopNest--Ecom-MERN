@@ -1,0 +1,64 @@
+.checkout-container{
+width: 100%;
+padding: 30px;
+
+}
+
+.checkout-content h2{
+color: rgb(249, 238, 238);
+font-size: 1.5rem;
+letter-spacing: 0.8px;
+margin-bottom: 20px;
+}
+
+.checkout-content{
+padding: 20px 30px;
+width: 100%;
+max-width: 600px;
+background-color: rgb(24, 23, 23);
+margin: 0 auto;
+border-radius: 10px;
+}
+
+.checkout-content form{
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 25px;
+justify-content: center;
+}
+
+.checkout-content input{
+padding: 15px 10px;
+color: white;
+width:  100%;
+ background-color: black;
+border: 1px solid rgb(92, 86, 86);
+border-radius: 10px;
+}
+.checkout-content input:focus{
+ outline: none;
+border: 1px solid rgb(92, 86, 86); 
+background-color: rgb(236, 230, 230);
+border-color: white;
+box-shadow:0 1px white ;
+color: black;
+}
+
+.checkout-content .checkout-summary{
+   align-self: flex-end;
+   display: flex;
+   flex-direction: column;
+
+}
+.checkout-content .checkout-summary h4{
+    font-size: 1.5rem;
+    
+}
+
+.checkout-content .checkout-summary .btn{
+
+    max-width: 60%;
+    align-self: flex-end;    
+}
+

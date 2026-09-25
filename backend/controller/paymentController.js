@@ -30,10 +30,10 @@ const createCheckoutSession = async (req, res) => {
             mode: "payment",
 
             success_url:
-                "http://localhost:5173/payment-success?session_id={CHECKOUT_SESSION_ID}",
+                `${process.env.FRONTEND_URL}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
 
             cancel_url:
-                "http://localhost:5173/payment-cancel",
+                 `${process.env.FRONTEND_URL}/payment-cancel`,
 
             metadata: {
                 userId: req.user._id.toString(),
@@ -59,7 +59,7 @@ const createCheckoutSession = async (req, res) => {
 
 const createOrderAfterPayment = async (req, res) => {
     try {
-        const { sessionId, items, totalAmount, address } = req.body;
+        const { sessionId, items} = req.body;
 
         if (!sessionId) {
             return res.status(400).json({
@@ -70,13 +70,21 @@ const createOrderAfterPayment = async (req, res) => {
         // Get the Checkout Session from Stripe
         const session = await stripe.checkout.sessions.retrieve(sessionId);
 
+
         // Make sure payment was successful
         if (session.payment_status !== "paid") {
             return res.status(400).json({
                 message: "Payment has not been completed"
             });
         }
+  // Get information from Stripe metadata
+        const totalAmount =
+            Number(session.metadata.totalAmount);
 
+        const address =
+            JSON.parse(session.metadata.address);
+
+        
         // Get Stripe PaymentIntent ID
         const paymentId = session.payment_intent;
 

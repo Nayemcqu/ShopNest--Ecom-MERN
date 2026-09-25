@@ -1,0 +1,141 @@
+.cart-container{
+    margin-top: 30px;
+    
+}
+
+.cart-container h2{
+      margin-left: 20px; 
+}
+
+.cart-layout{
+    display: flex;
+    justify-content:space-around;
+    align-items: flex-start;
+    flex-direction: row;
+    margin-left: 30px;
+    position: relative;;
+}
+
+
+.cart-item{
+
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 20px;
+position: relative;
+ margin-bottom:50px ;   
+}
+.cart-item-image{
+    object-fit: contain;
+    width: 100%;
+    max-width: 100px;
+    border-radius: 5px;
+    max-height: 100px;
+    position: relative;
+    top: 10px;
+}
+
+.cart-item-detail{
+display: flex;
+flex-direction: column;
+gap: 10px;
+width: 100%;
+max-width: 200px;
+}
+
+.cart-item-detail h4{
+    font-size: 1.1rem;
+    margin:5px 0 ;
+font-weight: bold;
+}
+
+
+.cart-item-detail .quan-btn{
+   padding: 10px 10px;
+   border: 1px solid rgba(20, 14, 23, 0.365);
+background-color: #1a1a1a;
+   color: aliceblue;
+ font-size: 0.8rem;
+}
+.cart-item-detail .quan-btn:hover{
+    background-color: #262626;
+    transition: all .8s ease;
+}
+
+.cart-item-detail span{
+margin: 0 5px;
+font-weight: 400;
+}
+
+ .btn-remove-from-cart{
+    color:rgb(226, 52, 52);
+    padding: 7px;
+    background-color: rgb(56, 28, 28);
+ border: 1px solid rgb(244, 148, 148);
+ border-radius: 5px;
+}
+.btn-remove-from-cart:hover{
+    background-color:rgb(175, 16, 16) ;
+    border-color: rgb(90, 20, 20);
+    color: white;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+.cart-summary{
+
+position: sticky;
+top: 300px;
+width: 100%;
+max-width: 300px;
+}
+
+.cart-summary h3{
+font-size: 3rem;
+font-weight:700;
+letter-spacing: -0.02em;
+
+}
+
+.cart-summary .btn-checkout{
+    padding: 20px 30px;
+    font-size: 1.2rem;
+    width: 100%; 
+}
+
+@media (max-width:768px) {
+.cart-layout{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+  
+    position: relative;;
+}
+
+    .cart-summary{
+        position: static;
+        display: flex;
+        justify-self: center;
+        margin-left: 20px;
+flex-direction: column;
+align-items: center;
+
+    }
+   .cart-summary h3{
+font-size: 1.5rem;
+font-weight:500;
+} 
+
+.cart-summary .btn-checkout{
+    padding: 15px 20px;
+    font-size: 1rem;
+    width: 100%; 
+}
+
+}
+
+
+
+

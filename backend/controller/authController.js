@@ -42,12 +42,20 @@ const hashedPassword=await bcrypt.hash(password,salt);
         const message=`Your OTP for ShopNest  registration is ${otp}`;
         console.log(`email is ${email}`);
         await sendEmail(email,'ShopNest Registration OTP',message);
+
+        const token=generateToken(user._id);
+
+        res.cookie("token",token,{
+            httpOnly:true,
+            secure: process.env.Node_ENV==='development',
+            sameSite:"lax",
+         maxAge: 30 * 24 * 60 * 60 * 1000
+        });
             res.status(201).json({
              
                 _id:user._id,
                 name:user.name,
                 email:user.email,
-                token:generateToken(user._id),
                 role:user.role,
             }
             );
@@ -102,5 +110,28 @@ catch(error){
     res.status(500).json({message:"internal server error"});
 }
 }
-export { registerUser, loginUser, getUsers };
+
+const logout=async(req,res)=>{
+
+res.cookie("token","",{
+    httpOnly:true,
+    expires:new Date(0)
+})
+
+res.json({
+    message:"Logged out successfully"
+})
+
+}
+
+const getMe = async (req, res) => {
+    res.status(200).json({
+        _id: req.user._id,
+        name: req.user.name,
+        email: req.user.email,
+        role: req.user.role
+    });
+};
+
+export { registerUser, loginUser, getUsers,logout,getMe };
 

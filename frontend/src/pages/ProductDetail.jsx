@@ -39,7 +39,7 @@ dispatch(addToCart(
         productId:product._id,
         name:product.name,
         price:product.price,
-        imageurl:product.imageUrls,
+        imageUrl:product.imageUrls,
         quantity:1,
         
     }))

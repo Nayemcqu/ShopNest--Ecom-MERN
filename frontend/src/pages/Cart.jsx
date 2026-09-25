@@ -46,16 +46,16 @@ cartItems.map((item)=>(
 <img src={item.imageUrl} alt={item.name} className="cart-item-image"/>
 <div className="cart-item-detail">
 <h4> {item.name}</h4>
-<p>{item.price}</p>
+<p>${item.price}</p>
 <div className="qty-controls">
-<button onClick={()=>handleRemoveByQuantity(item)}>
+<button onClick={()=>handleRemoveByQuantity(item)} className="quan-btn">
 -
 </button>
 <span>
     {item.quantity}
 </span>
 
-<button onClick={()=>handleAddToCart(item)}>
+<button onClick={()=>handleAddToCart(item)} className="quan-btn">
 +
 </button>
 </div>

@@ -1,30 +1,69 @@
-import {createContext,useState} from 'react';
+import {createContext,useState,useEffect} from 'react';
 
 export const authContext=createContext();
 
 export function AuthProvider({children}){
-const [user,setUser]=useState(()=>{
- const saveduser=JSON.parse(localStorage.getItem('userInfo')) 
- 
- return saveduser ?? null;
-});
+const [user,setUser]=useState('');
+
+ const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+
+        const getUser = async () => {
+
+            try {
+
+                const res = await fetch("/api/auth/me", {
+                    credentials: "include"
+                });
+
+                if (!res.ok) {
+                    setUser(null);
+                    return;
+                }
+
+                const data = await res.json();
+
+                setUser(data);
+
+            } catch (error) {
+
+                console.error(error);
+                setUser(null);
+
+            } finally {
+
+                setLoading(false);
+
+            }
+        };
+
+        getUser();
+
+    }, []);
+
 
 const login =(userData)=>{
   
     setUser(userData);
-
-    localStorage.setItem('userInfo',JSON.stringify(userData))
 }
 
-const logout=()=>{
+const logout=async()=>{
+    await fetch("/api/auth/logout", {
+        method: "POST",
+        credentials: "include"
+    });
+
 setUser(null);
-localStorage.removeItem('userInfo');
+navigate("/login");
+
 }
 
 const contextValue={
     user,
     login,
-    logout
+    logout,
+    loading
 }
 
 return(

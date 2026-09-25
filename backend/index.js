@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
-
+import cookieParser from "cookie-parser";
 import { connectDB } from "./config/db.js";
 import authRoutes from "./route/authRoutes.js";
 import productRoutes from "./route/productRoutes.js";
@@ -30,7 +30,7 @@ app.use(
     credentials: true,
   })
 );
-
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

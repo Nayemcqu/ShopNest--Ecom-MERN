@@ -1,0 +1,45 @@
+.payment-page-container{
+
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.payment-detail-container{
+margin: 150px;
+width: 100%;
+max-width: 400px;
+min-width: 200px;
+padding: 100px 50px  ;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+background-color: rgb(20, 17, 17);
+border: 1px solid rgb(56, 54, 54);
+box-shadow: 0 4px rgb(26, 21, 21);
+border-radius: 7px;
+ backdrop-filter: blur(15px);
+}
+
+.payment-detail-container p{ 
+font-size: 1rem;
+font-weight: 500;
+margin-bottom: 20px;
+}
+.payment-link-home{
+    color: rgb(86, 86, 245);
+    margin-right: 50px;
+}
+.payment-link-home a{
+    text-decoration: underline;
+    color: rgb(130, 130, 246);
+    
+}
+.payment-link-home :hover{
+    text-decoration:none;
+    color: white;
+
+}
