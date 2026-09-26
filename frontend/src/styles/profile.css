@@ -1,0 +1,130 @@
+.profile-container{
+    width: 100%;
+    max-width: 80%;   
+    background-color: rgb(17, 16, 16);
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-container .profile-user-detail-container{
+
+    display: flex;
+   width: 100%;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 20px;
+   position: relative;
+   padding: 30px;
+}
+.profile-container .profile-user-detail-container::after{
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 1px;
+background-color: rgb(77, 71, 71);
+}
+
+.profile-user-detail-container p{
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgb(240, 226, 226);
+    width: fit-content;
+    margin-bottom: 10px;
+}
+.profile-user-detail-container p span{
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(232, 222, 222);
+}
+
+.profile-user-detail-container .account-type{
+    color: rgb(255, 106, 0);
+    background-color:rgb(83, 38, 5) ;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 7px;
+
+}
+.profile-user-detail-container .account-type span{
+    color: rgb(255, 106, 0);
+
+}
+
+.profile-container h3{
+     color: rgb(255, 106, 0);
+     font-size: 1.4rem;
+
+}
+
+.order-details-container{
+    padding: 20px 30px ;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.order-details-container p{
+     font-size: 0.8rem;
+    font-weight: 400;
+    color: rgb(240, 226, 226);
+    width: fit-content;
+    margin-bottom: 10px; 
+    text-transform: capitalize;
+}
+
+.order-details-container p span{
+
+ font-size: 0.8rem;
+    font-weight: bold;
+    color: white;    
+}
+.order-details-container p strong{
+    color: aquamarine;
+}
+
+.order-details-status span{
+color: rgb(255, 106, 0); ;
+}
+
+@media (max-width:768px) {
+     .profile-container .profile-user-detail-container {
+       display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .profile-container .profile-user-detail-container p {
+        width: fit-content;
+        margin: 0 auto 10px auto;
+        text-align: center;
+    }
+
+    .profile-container .profile-user-detail-container .account-type {
+        width: fit-content;
+        margin: 20px auto;
+
+    }
+   .order-details-container{
+    padding: 20px 10px ;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+
+} 
+.order-details-container p {
+    min-width: 0;
+    max-width: 100%;
+    word-break: break-word;
+}
+   
+
+}

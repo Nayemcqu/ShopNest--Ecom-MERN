@@ -39,7 +39,7 @@ fetchProducts();
   loading ? (
     <p>Loading...</p>
   ):(
-    <div className="product-grid" style={{  display: "grid", justifyContent:'center',
+    <div className="product-grid" style={{  display: "grid",
   gridTemplateColumns: "repeat(auto-fit, minmax(250px,300px))",
   gap: "20px", }} >
       {products.map((product)=>(

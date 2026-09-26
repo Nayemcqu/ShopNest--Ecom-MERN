@@ -12,6 +12,7 @@ import ProductDetail from './pages/ProductDetail.jsx'
 import Cart from './pages/Cart.jsx'
 import Checkout from './pages/Checkout.jsx'
 import PaymentSuccess from './pages/PaymentSuccess.jsx' 
+import Profile from './pages/Profile.jsx'
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
     <Route path='/cart' element={<Cart/>}></Route>
     <Route path='/checkout' element={<Checkout/>}></Route>
     <Route path='/payment-success' element={<PaymentSuccess/>}></Route>
+    <Route path='/profile' element={<Profile/>}></Route>
       </Routes>
        
       </main>

@@ -2,6 +2,16 @@
 width: 100%;  
 }
 
-.home-container .hero-banner{
-margin: 0 auto;
+
+.home-container .hero-banner {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    text-align: center;
 }
+
+.home-container h2{
+    margin-bottom: 40px;
+}
+
