@@ -89,7 +89,7 @@ return (
 <p>
 You haven't placed any orders yet.
 </p>
-<Link to="/shop" className="btn"> start shopping</Link>
+<Link to="/" className="btn" style={{margin:'20px'}}> start shopping</Link>
 </div>
 
 ):(

@@ -1,0 +1,129 @@
+.admin-dash-container{
+    width: 100%;
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+margin: 0 auto;
+}
+
+.admin-dash-container .admin-dash-header{
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+padding: 10px;
+}
+
+.admin-dash-header img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+align-self: center;
+}
+
+
+.admin-dash-header h2{
+    align-self: center;
+    margin: 0;
+}
+
+.dash-quantity-container{
+margin:50px auto  ;
+display: flex;
+gap: 50px;
+justify-content: center;
+align-items: center;
+}
+
+.admin-dash-container p{
+    color: rgb(93, 215, 93);
+    font-size: 2rem;
+    font-weight: 600;
+    justify-self: center;
+
+}
+
+
+.dash-administrative-control{
+margin-top: 50px;
+display: flex;
+flex-direction: column;
+gap: 30px;
+}
+
+
+.dash-administrative-control h3{
+
+color: rgb(236, 103, 54);
+}
+.dash-controls{
+    display: flex;
+    gap:30px;
+
+}
+
+@media (max-width:768px) {
+  .admin-dash-container .admin-dash-header{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+padding: 10px;
+}
+
+.admin-dash-header img {
+    width: 200px;
+   height: 200px;
+    object-fit: contain;
+align-self: center;
+min-width: 100px;
+min-height: 100px;
+
+}
+
+
+.admin-dash-header h2{
+    align-self: center;
+    margin: 0;
+    min-width: 0;
+    max-width: 100%;
+    word-break: break-all;
+}
+
+.admin-dash-container p{
+    color: rgb(93, 215, 93);
+    font-size: 2rem;
+    font-weight: 600;
+        width: fit-content;
+    text-align: center;
+    margin:0 auto;
+}
+
+.dash-quantity-container{
+margin:50px auto  ;
+display: flex;
+flex-direction: column;
+gap: 50px;
+}
+
+.dash-quantity-container p{
+width: fit-content;
+margin:0 auto;
+text-align: center;
+}
+
+.dash-controls{
+    display: flex;
+    gap:30px;
+flex-direction:column;
+}
+
+.dash-administrative-control h3{
+
+color: rgb(236, 103, 54);
+width: fit-content;
+justify-self: center;
+margin: 0 auto;
+}
+}

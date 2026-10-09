@@ -6,6 +6,6 @@ import {getAdminStat} from "../controller/analyticsController.js"
 
 const router=express.Router();
 
-router.get("/",protect,admin,getAdminStat);
+router.get("/",getAdminStat);
 
 export default router;

@@ -20,6 +20,10 @@
   overflow: hidden;
 }
 
+.error-message{
+    color:red !important;
+}
+
 .auth-form::before{
     content: '';
     position: absolute;
@@ -45,8 +49,6 @@
 }
 
 .auth-form input{
-
-padding: 15px;
 background: #09090b;
 border: 1px solid #27272a;
 border-radius: 8px;
@@ -75,4 +77,42 @@ color: #a1a1aa;
 
 .auth-form a:hover{
     text-decoration: underline;
+}
+
+.input-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-group input{
+    width: 100%;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.password-requirements {
+    margin-top: 8px;
+}
+
+.password-requirements p {
+    font-size: 13px;
+    margin: 3px 0;
+}
+
+.password-requirements .valid {
+    color: green;
+}
+
+.password-requirements .invalid {
+    color: red;
+}
+
+.noerr-message{
+    color: green !important;
+    font-size: 14px;
+    margin: 5px 0;
 }

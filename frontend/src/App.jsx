@@ -13,7 +13,12 @@ import Cart from './pages/Cart.jsx'
 import Checkout from './pages/Checkout.jsx'
 import PaymentSuccess from './pages/PaymentSuccess.jsx' 
 import Profile from './pages/Profile.jsx'
-
+import AdminDashboard from './admin/AdminDashboard.jsx'
+import AdminUsers from './admin/AdminUsers.jsx'
+import AdminProducts from './admin/AdminProducts.jsx'
+import AddProduct from './admin/AddProduct.jsx'
+import EditProduct from './admin/EditProduct.jsx'
+import AdminOrders from './admin/AdminOrders.jsx'
 function App() {
 
 
@@ -37,8 +42,13 @@ function App() {
     <Route path='/checkout' element={<Checkout/>}></Route>
     <Route path='/payment-success' element={<PaymentSuccess/>}></Route>
     <Route path='/profile' element={<Profile/>}></Route>
-      </Routes>
-       
+    <Route path='/admin' element={<AdminDashboard/>}></Route>
+    <Route path='/admin/users' element={<AdminUsers/>}></Route>
+    <Route path='/admin/products' element={<AdminProducts/>}></Route>
+    <Route path='/admin/add-product' element={<AddProduct/>}></Route>
+    <Route path='/admin/edit-product/:id' element={<EditProduct/>}></Route>
+    <Route path='/admin/orders' element={<AdminOrders/>}></Route>
+      </Routes> 
       </main>
       <Footer/>
       </div>

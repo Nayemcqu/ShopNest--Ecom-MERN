@@ -53,7 +53,7 @@ const getOrders=async(req,res)=>{
 
     try{
 
-        const orders=await Order.find({}).populate('user ','id name');;
+        const orders=await Order.find({}).populate('user','_id name');;
         res.json(orders);
     }
     catch(error){

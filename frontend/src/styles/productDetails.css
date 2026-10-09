@@ -31,14 +31,21 @@ overflow: hidden;
 @media (max-width:768px) {
    .product-detail{
    flex-direction: column;   
+   margin: 0;
+
    } 
    .detail-image-container{
     width: 100%;
-    margin-bottom: 20px;
-    margin: 0 auto;
+ 
    }
    .detail-image-container .detail-image{
     width: 75%;
+    margin: 0;
 
    }
+.detail-info{
+    width: 100%;
+padding-left:20px ;
+}
+
 }

@@ -1,0 +1,46 @@
+.user-dir-container{
+width: 100%;
+max-width: 90%;
+display: flex;
+justify-content: flex-start;
+flex-direction: column;
+}
+
+.user-dir-container table{
+width: 100%;
+border-collapse: collapse;
+    background-color: #111113;
+    border: 1px solid #27272a;
+    border-radius: 10px;
+    overflow: hidden;
+    color: #fafafa;
+
+}
+
+.user-dir-container thead{
+  background-color: #1a1a1d;
+}
+
+.user-dir-container th{
+padding: 16px 20px;
+text-align: left;
+font-size: 0.85rem;
+font-weight: 600;
+ color: #a1a1aa;
+text-transform: uppercase;
+ letter-spacing: 0.5px;
+border-bottom: 1px solid #27272a;
+min-width: 0;
+word-break: break-all;
+}
+
+.user-dir-container td{
+     padding: 16px 20px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #27272a;
+    color: #e4e4e7;
+min-width: 0;
+max-width: 100%;
+word-break: break-word;
+}
+

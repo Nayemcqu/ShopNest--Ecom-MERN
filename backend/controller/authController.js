@@ -83,11 +83,20 @@ const loginUser=async(req,res)=>{
     try{
         const user=await User.findOne({email});
         if(user && (await bcrypt.compare(password,user.password))){
+           
+             const token=generateToken(user._id);
+
+        res.cookie("token",token,{
+            httpOnly:true,
+            secure: process.env.Node_ENV==='development',
+            sameSite:"lax",
+         maxAge: 30 * 24 * 60 * 60 * 1000
+        });
+           
             res.json({
                 _id:user._id,
                 name:user.name,
                 email:user.email,
-                token:generateToken(user._id),
                 role:user.role,
             })
         }
