@@ -16,6 +16,10 @@ width: 100%;
 .home-container h2{
     margin-bottom: 40px;
 }
+.product-grid{
+    justify-content: center;
+    align-items: center;
+}
 
 @media (max-width:768px) {
     
@@ -27,5 +31,7 @@ width: 100%;
 .product-grid{
     justify-content: center;
     align-items: center;
+    width: fit-content;
+    margin: 0 auto;
 }
 }
