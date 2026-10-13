@@ -1,6 +1,6 @@
 import Product from "../model/product.js"
 import cloudinary from "../config/cloudinary.js"
-
+import redis from "../config/redis.js";
 
 const getProducts=async(req,res)=>{
 
@@ -19,10 +19,22 @@ res.status(500).json({message:'Server Error'});
 const getProductById=async(req,res)=>{
 
     try{
+const{id}=req.params;
 
-const product=await Product.findById(req.params.id);
+const  cacheKey=`shopnest:product:${id}`;
+
+const cachedProduct=await redis.get(cacheKey);
+
+if(cachedProduct){
+    console.log("redis cache hit");
+    return res.status(200).json(JSON.parse(cachedProduct));
+}
+console.log("redis hit miss")
+const product=await Product.findById(req.params.id).lean();
+
 if(product){
-    res.json(product);
+    await redis.set(cacheKey,JSON.stringify(product),{EX:86400});
+    res.status(200).json(product);
 }
 else{
     res.status(404).json({message:"Product Not Found"});

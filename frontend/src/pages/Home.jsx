@@ -12,7 +12,7 @@ const fetchProducts=async()=>{
   try{
 const res=await fetch('/api/products')
 const data=await res.json();
-setProducts(data.slice(0,4)); //Featured products
+setProducts(data.slice(0,7)); //Featured products
   }
   catch(err){
     console.log(err);
@@ -30,7 +30,7 @@ fetchProducts();
 <div className="hero-banner">
 
 <h1>Welcome to ShopNest</h1>
-<p>Your one-stop destination for all && at unbeatable price.</p>
+<p>Your one-stop destination for all, at unbeatable price.</p>
 </div>
 
 <h2>featured products</h2>

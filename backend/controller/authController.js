@@ -2,6 +2,17 @@ import User from "../model/user.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import {sendEmail} from "../utils/sendEmail.js";
+import crypto from "node:crypto"
+import redis from "../config/redis.js";
+
+function hashToken(token){
+    return crypto.createHash("sha256").update(token).digest("hex");
+}
+
+
+
+
+
 const generateToken=(id)=>{
     return jwt.sign({id},process.env.JWT_SECRET,{expiresIn:"30d"});
 }
@@ -47,7 +58,7 @@ const hashedPassword=await bcrypt.hash(password,salt);
 
         res.cookie("token",token,{
             httpOnly:true,
-            secure: process.env.Node_ENV==='development',
+            secure: process.env.NODE_ENV==='production',
             sameSite:"lax",
          maxAge: 30 * 24 * 60 * 60 * 1000
         });
@@ -88,7 +99,7 @@ const loginUser=async(req,res)=>{
 
         res.cookie("token",token,{
             httpOnly:true,
-            secure: process.env.Node_ENV==='development',
+            secure: process.env.NODE_ENV==='production',
             sameSite:"lax",
          maxAge: 30 * 24 * 60 * 60 * 1000
         });
@@ -122,14 +133,55 @@ catch(error){
 
 const logout=async(req,res)=>{
 
-res.cookie("token","",{
-    httpOnly:true,
-    expires:new Date(0)
-})
+    try{
+         const token=req.cookies?.token;
+        if(token){
+            const decoded=jwt.verify(token,process.env.JWT_SECRET);
+            const remainingSecond=decoded.exp- Math.floor(Date.now()/1000);
 
-res.json({
-    message:"Logged out successfully"
-})
+            if(remainingSecond>0){
+await redis.set(
+    `shopnest:revoked:${hashToken(token)}`,
+    "1",
+    {EX:remainingSecond}
+)
+            }
+            
+        }
+
+        res.clearCookie("token",{
+            httpOnly:true,
+            secure:process.env.NODE_ENV ==="production",
+            sameSite:"lax",
+            path:"/"
+        })
+
+        return res.status(200).json({
+            message:"Logged out successfully",
+
+        })
+
+    }
+    catch(error){
+         if (
+      error.name === "JsonWebTokenError" ||
+      error.name === "TokenExpiredError"
+    ) {
+      // An invalid or expired token doesn't need revocation.
+      res.clearCookie("token", { path: "/" });
+
+      return res.status(200).json({
+        message: "Logged out successfully",
+      });
+    }
+
+    // If Redis is unavailable, don't pretend revocation succeeded.
+    console.error("Logout failed:", error);
+
+    return res.status(503).json({
+      message: "Logout could not be completed. Please try again.",
+    });
+    }
 
 }
 

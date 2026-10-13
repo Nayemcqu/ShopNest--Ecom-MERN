@@ -76,7 +76,7 @@ finally{
 
 <h2>Add new Product</h2>
 
-<form>
+<form onSubmit={handleSubmit}>
 
 <input type="text" placeholder="Product Name" required onChange={(e)=>setFormData({...formData,name: e.target.value})}/>
 

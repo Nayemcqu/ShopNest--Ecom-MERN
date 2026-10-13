@@ -11,7 +11,7 @@ import productRoutes from "./route/productRoutes.js";
 import orderRoutes from "./route/orderRoutes.js";
 import paymentRoutes from "./route/paymentRoutes.js";
 import analyticsRoutes from "./route/analyticsRoutes.js";
-
+import redis from "./config/redis.js"
 dotenv.config();
 
 // ES Modules does not have __dirname automatically
@@ -19,7 +19,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 await connectDB();
-
+await redis.connect();
 const app = express();
 
 app.use(
