@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import "dotenv/config";
 import User from "../model/user.js";
 import redis from "../config/redis.js";
 import crypto from "node:crypto"

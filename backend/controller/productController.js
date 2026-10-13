@@ -1,7 +1,7 @@
 import Product from "../model/product.js"
 import cloudinary from "../config/cloudinary.js"
 import redis from "../config/redis.js";
-
+import "dotenv/config";
 const getProducts=async(req,res)=>{
 
 try{

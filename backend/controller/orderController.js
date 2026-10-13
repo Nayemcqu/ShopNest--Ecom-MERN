@@ -1,4 +1,5 @@
 import Order from "../model/Order.js";
+import "dotenv/config";
 import { sendEmail} from "../utils/sendEmail.js";
 
 const createNewOrder=async(req,res)=>{

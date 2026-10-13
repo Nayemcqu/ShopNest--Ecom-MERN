@@ -1,6 +1,6 @@
 import Order from "../model/Order.js";
 import stripe from "../config/stripe.js";
-
+import "dotenv/config";
 const createCheckoutSession = async (req, res) => {
     try {
         const { items, totalAmount, address } = req.body;

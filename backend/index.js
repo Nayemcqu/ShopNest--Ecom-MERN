@@ -1,6 +1,5 @@
-
+import "dotenv/config";
 import express from "express";
-import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -12,7 +11,6 @@ import orderRoutes from "./route/orderRoutes.js";
 import paymentRoutes from "./route/paymentRoutes.js";
 import analyticsRoutes from "./route/analyticsRoutes.js";
 import redis from "./config/redis.js"
-dotenv.config();
 
 // ES Modules does not have __dirname automatically
 const __filename = fileURLToPath(import.meta.url);
