@@ -1,10 +1,10 @@
 import {createContext,useState,useEffect} from 'react';
-
+import { useNavigate } from 'react-router-dom';
 export const authContext=createContext();
 
 export function AuthProvider({children}){
 const [user,setUser]=useState('');
-
+const navigate=useNavigate();
  const [loading, setLoading] = useState(true);
 
     useEffect(() => {

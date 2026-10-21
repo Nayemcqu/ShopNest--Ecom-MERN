@@ -137,6 +137,7 @@ const logout=async(req,res)=>{
     try{
          const token=req.cookies?.token;
         if(token){
+            
             const decoded=jwt.verify(token,process.env.JWT_SECRET);
             const remainingSecond=decoded.exp- Math.floor(Date.now()/1000);
 

@@ -42,7 +42,7 @@ else{
 }
 
 
-    }
+}
 
 catch(error){
 res.status(500).json({message:'Server error'});
@@ -56,7 +56,7 @@ const createProduct=async(req,res)=>{
         try{
    const {name,description,price, category,stock}=req.body;
 
-    let imageUrls=' ';
+    let imageUrls='';
     if(req.file){
         const result=await cloudinary.uploader.upload(req.file.path);
         imageUrls=result.secure_url; 
