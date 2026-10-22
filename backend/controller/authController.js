@@ -59,7 +59,7 @@ const hashedPassword=await bcrypt.hash(password,salt);
 
         res.cookie("token",token,{
             httpOnly:true,
-            secure: process.env.NODE_ENV==='production',
+            secure: process.env.NODE_ENV==='development',
             sameSite:"lax",
          maxAge: 30 * 24 * 60 * 60 * 1000
         });
@@ -100,7 +100,7 @@ const loginUser=async(req,res)=>{
 
         res.cookie("token",token,{
             httpOnly:true,
-            secure: process.env.NODE_ENV==='production',
+            secure: process.env.NODE_ENV==='development',
             sameSite:"lax",
          maxAge: 30 * 24 * 60 * 60 * 1000
         });
@@ -153,7 +153,7 @@ await redis.set(
 
         res.clearCookie("token",{
             httpOnly:true,
-            secure:process.env.NODE_ENV ==="production",
+            secure:process.env.NODE_ENV ==="development",
             sameSite:"lax",
             path:"/"
         })

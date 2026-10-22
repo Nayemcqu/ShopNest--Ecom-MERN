@@ -16,6 +16,10 @@ const navigate=useNavigate();
                 const res = await fetch("/api/auth/me", {
                     credentials: "include"
                 });
+   if (res.status === 401) {
+          setUser(null);
+          return;
+        }
 
                 if (!res.ok) {
                     setUser(null);
