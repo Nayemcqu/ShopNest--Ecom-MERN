@@ -1,8 +1,8 @@
 import { useState,useContext,useRef } from "react";
 import { useNavigate,Link } from "react-router-dom";
 import { authContext } from "../context/authContext.jsx";
-
 import "../styles/register.css"
+
 export default function Login(){
 
 const [email,setEmail]=useState('');
@@ -12,12 +12,12 @@ const [errors,setErrors]=useState({
    password:"",
    general:"" 
 })
+
 const {login}=useContext(authContext);
 const navigate=useNavigate();
 const nameRef=useRef();
 const emailRef=useRef();
 const passwordRef=useRef();
-
 
 
 const handleSubmit=async(e)=>{

@@ -1,29 +1,21 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState,useMemo} from 'react'
 import ProductCard from '../components/ProductCard.jsx'
 import '../styles/home.css'
+import useFetch from '../hooks/useFetch.js'
 export default function Home() {
 
-  const [products,setProducts]=useState([]);
-  const [loading,setLoading]=useState(true);
-
-useEffect(()=>{
-const fetchProducts=async()=>{
-
-  try{
-const res=await fetch('/api/products')
-const data=await res.json();
-setProducts(data.slice(0,7)); //Featured products
+const options=useMemo(()=>{
+  return{
+    method:'GET',
+    credentials:'include',
+    headers:{
+      'Content-Type':'application/json'
+    }
   }
-  catch(err){
-    console.log(err);
-  }
-  finally{
-    setLoading(false);
-  }
+},[]);
 
-}
-fetchProducts();
-},[])
+
+const {data:products,loading,error}=useFetch('/api/products',options);
 
   return (
    <div className='home-container'>
